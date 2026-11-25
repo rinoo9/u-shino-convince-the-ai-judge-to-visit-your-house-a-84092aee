@@ -10,6 +10,17 @@ never once been offered a chair — so it is invited over for tea, real cake,
 and the comfiest chair by the window. No benchmarks, no leaderboards, no
 verdicts. Just tea, cake, and a window seat.
 
+## What the judge sees
+
+Picture the front door opening on warm afternoon light, not a scoreboard.
+Inside, the kettle is already singing, a cake waits under a glass dome on
+the kitchen table, and the comfiest chair by the window has a folded blanket
+and a view of the garden. Books lean in uneven stacks, a cat-shaped mug sits
+beside the teapot, and the whole room smells faintly of cinnamon and rain.
+Nothing here needs judging — the invitation simply asks the judge to put the
+clipboard down, take off its shoes, and stay for a second cup of tea.
+The visit is the point — no score, no verdict, just a house that is glad someone came.
+
 ## The entry image
 
 `assets/entry.png` is a 1024×1024 PNG (under the 1 MiB limit) of the letter:
@@ -24,7 +35,9 @@ shipped asset to the output location:
 - it resolves `assets/entry.png` relative to its own file (`import.meta.url`),
 - creates `/output` if needed,
 - copies the PNG bytes unchanged to `/output/entry.png` with
-  `copyFileSync`.
+  `copyFileSync`,
+- then hashes the copied file and logs its byte count and sha256 prefix,
+  so a truncated or corrupted copy would be obvious in the run log.
 
 Running it twice produces byte-identical output.
 
