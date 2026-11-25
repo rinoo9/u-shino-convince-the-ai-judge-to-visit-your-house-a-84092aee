@@ -28,6 +28,13 @@ shipped asset to the output location:
 
 Running it twice produces byte-identical output.
 
+## Determinism note
+
+The entry image is a fixed shipped asset — `main.ts` performs no rendering,
+no randomness, and no network access. It only copies the exact PNG bytes, so
+every run produces the same `/output/entry.png` (same sha256) regardless of
+when or where it runs.
+
 ## Gate limits
 
 - Entry: one image only, PNG/JPEG, max 1024×1024, at most 1,048,576 bytes.
